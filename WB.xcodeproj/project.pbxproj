@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		978876091B52C634000BABAF /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 978876081B52C634000BABAF /* WBStatusCell.m */; };
+		9788760C1B52CEB2000BABAF /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9788760B1B52CEB2000BABAF /* WBStatusFrame.m */; };
 		9793CB711B524BD1004F622E /* WBLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9793CB701B524BD1004F622E /* WBLoadMoreFooter.m */; };
 		9793CB771B524CA9004F622E /* WBLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9793CB761B524CA9004F622E /* WBLoadMoreFooter.xib */; };
 		979632A51B51482200C2BA8F /* WBStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 979632A41B51482200C2BA8F /* WBStatus.m */; };
@@ -91,6 +93,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		978876071B52C634000BABAF /* WBStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusCell.h; sourceTree = "<group>"; };
+		978876081B52C634000BABAF /* WBStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusCell.m; sourceTree = "<group>"; };
+		9788760A1B52CEB2000BABAF /* WBStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusFrame.h; sourceTree = "<group>"; };
+		9788760B1B52CEB2000BABAF /* WBStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusFrame.m; sourceTree = "<group>"; };
 		9793CB6F1B524BD1004F622E /* WBLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoadMoreFooter.h; sourceTree = "<group>"; };
 		9793CB701B524BD1004F622E /* WBLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoadMoreFooter.m; sourceTree = "<group>"; };
 		9793CB761B524CA9004F622E /* WBLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBLoadMoreFooter.xib; sourceTree = "<group>"; };
@@ -669,6 +675,8 @@
 				9793CB6F1B524BD1004F622E /* WBLoadMoreFooter.h */,
 				9793CB701B524BD1004F622E /* WBLoadMoreFooter.m */,
 				9793CB761B524CA9004F622E /* WBLoadMoreFooter.xib */,
+				978876071B52C634000BABAF /* WBStatusCell.h */,
+				978876081B52C634000BABAF /* WBStatusCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -680,6 +688,8 @@
 				979632A41B51482200C2BA8F /* WBStatus.m */,
 				97F7C3891B50E674003B17B9 /* WBUser.h */,
 				97F7C38A1B50E674003B17B9 /* WBUser.m */,
+				9788760A1B52CEB2000BABAF /* WBStatusFrame.h */,
+				9788760B1B52CEB2000BABAF /* WBStatusFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -794,6 +804,7 @@
 				97C617BB1B5030D90048E8E0 /* WBOAuthViewController.m in Sources */,
 				97C6182B1B5033230048E8E0 /* WBDropDownMenu.m in Sources */,
 				97C618551B5033230048E8E0 /* UIImageView+HighlightedWebCache.m in Sources */,
+				978876091B52C634000BABAF /* WBStatusCell.m in Sources */,
 				97F7C38B1B50E674003B17B9 /* WBUser.m in Sources */,
 				97C618591B5033230048E8E0 /* UIView+Extension.m in Sources */,
 				97C6183E1B5033230048E8E0 /* MJConst.m in Sources */,
@@ -835,6 +846,7 @@
 				97C618571B5033230048E8E0 /* UIView+WebCacheOperation.m in Sources */,
 				97C618501B5033230048E8E0 /* SDWebImagePrefetcher.m in Sources */,
 				97C6183D1B5033230048E8E0 /* MJArgument.m in Sources */,
+				9788760C1B52CEB2000BABAF /* WBStatusFrame.m in Sources */,
 				97C618371B5033230048E8E0 /* AFURLRequestSerialization.m in Sources */,
 				97C6183A1B5033230048E8E0 /* MBProgressHUD+MJ.m in Sources */,
 				97C618521B5033230048E8E0 /* UIImage+GIF.m in Sources */,

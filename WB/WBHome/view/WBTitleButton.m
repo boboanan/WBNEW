@@ -33,6 +33,18 @@
     return self;
 }
 
+//目的：想再系统计算和设置完按钮的尺寸后，再修改一下尺寸
+/**
+ *    重写setFrame方法的目的：拦截设置按钮尺寸的过程
+ *    如果想在系统设置完控件的尺寸后，再作修改，而且保证修改成功，一般都是是在setFrame中设置
+ */
+-(void)setFrame:(CGRect)frame
+{
+    //frame.size.width += 10;
+    [super setFrame:frame];
+}
+
+//此方法实在自己尺寸被改时调用
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -44,7 +56,7 @@
 //    self.backgroundColor = [UIColor yellowColor];
 //    self.titleLabel.backgroundColor = [UIColor redColor];
     //计算imageView的frame
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + 10;
 }
 
 
@@ -53,7 +65,7 @@
 {
     [super setTitle:title forState:state];
     
-    [self sizeToFit];
+    [self sizeToFit];//此方法是按照图片在左，文字在右的默认属性计算的
 }
 
 -(void)setImage:(UIImage *)image forState:(UIControlState)state

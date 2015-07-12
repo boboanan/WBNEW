@@ -17,6 +17,7 @@
 #import "WBStatus.h"
 #import "WBUser.h"
 #import "UIImageView+WebCache.h"
+#import "WBLoadMoreFooter.h"
 
 @interface WBHomeViewController ()<WBDropDownMenuDelegate>
 
@@ -46,16 +47,32 @@
 //    [self loadNewStatus];
 //    
     
-    //即成刷新控件
-    [self setUpRefresh];
+    //集成下拉刷新控件
+    [self setUpDownRefresh];
+    
+    //集成上拉拉刷新控件
+    [self setUpUprefresh];
 }
 
+-(void)setUpUprefresh
+{
+    self.tableView.tableFooterView = [WBLoadMoreFooter footer];
+}
 
--(void)setUpRefresh
+-(void)setUpDownRefresh
 {
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    
+    //只有用户通过手动下啦刷新，才会触发UIControlEventValueChanged
     [control addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:control];
+    
+    
+    //马上进入刷新状态（仅仅是显示刷新状态，并不会出发UIControlEventValueChanged事件）
+    [control beginRefreshing];
+    
+    //马上加载数据
+    [self refreshStateChange:control];
 }
 
 /**
@@ -102,10 +119,69 @@
         
         //结束刷新
         [control endRefreshing];
+        
+        //显示最新微博数量
+        [self showNewStatusCount:newStatuses.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         WBLog(@"refresh请求失败-%@", error);
     }];
 
+}
+
+/**
+ 显示最新微博的数量
+ */
+-(void)showNewStatusCount:(int)count
+{
+    //创建label
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];//平铺
+    label.width = [UIScreen mainScreen].bounds.size.width;
+    label.height = 35;
+    
+    //设置其他属性
+    if (count == 0) {
+        label.text = [NSString stringWithFormat:@"没有新的微博"];
+    }else{
+        label.text = [NSString stringWithFormat:@"共有%d条新的微博",count];
+    }
+    
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    //添加
+    
+    //先利用1s事件，让label往下移动一段距离
+    label.y = 64 - label.height;
+    //将label添加到导航控制器的view中，并且是盖在导航栏下面
+    //[self.navigationController.view addSubview:label];
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    //动画
+    CGFloat duration = 1.0; //动画的时间
+    [UIView animateWithDuration:duration animations:^{
+        
+       // label.y += label.height;
+        label.transform = CGAffineTransformMakeTranslation(0, label.height);
+        
+    } completion:^(BOOL finished) {
+        CGFloat delay = 1.0;  //延迟1s
+        //延迟1s，让label往上移动一段距离
+        
+        //UIViewAnimationCurveLinear匀速
+        [UIView animateWithDuration:duration delay:delay options:UIViewAnimationCurveLinear animations:^{
+            
+            label.transform = CGAffineTransformIdentity;//回到原来样子
+            //label.y -= label.height;
+            
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+        
+    }];
+    
+    //如果某个动画智聪完毕后，又要回到动画执行前的状态，建议使用transform来做动画
 }
 
 

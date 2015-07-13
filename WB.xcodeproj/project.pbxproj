@@ -62,6 +62,7 @@
 		97C618571B5033230048E8E0 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C618251B5033230048E8E0 /* UIView+WebCacheOperation.m */; };
 		97C618581B5033230048E8E0 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C618281B5033230048E8E0 /* UIBarButtonItem+Extension.m */; };
 		97C618591B5033230048E8E0 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C6182A1B5033230048E8E0 /* UIView+Extension.m */; };
+		97CB7E891B539B0200476F65 /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CB7E881B539B0200476F65 /* WBPhoto.m */; };
 		97DB96841B4BF5AC00AD56F8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97DB966F1B4BF5AC00AD56F8 /* Info.plist */; };
 		97DB96861B4BF5AC00AD56F8 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB96741B4BF5AC00AD56F8 /* Test1ViewController.m */; };
 		97DB96871B4BF5AC00AD56F8 /* Test1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97DB96751B4BF5AC00AD56F8 /* Test1ViewController.xib */; };
@@ -203,6 +204,8 @@
 		97C618281B5033230048E8E0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		97C618291B5033230048E8E0 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		97C6182A1B5033230048E8E0 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		97CB7E871B539B0200476F65 /* WBPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhoto.h; sourceTree = "<group>"; };
+		97CB7E881B539B0200476F65 /* WBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhoto.m; sourceTree = "<group>"; };
 		97DB966F1B4BF5AC00AD56F8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97DB96711B4BF5AC00AD56F8 /* WB-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WB-Prefix.pch"; sourceTree = "<group>"; };
 		97DB96731B4BF5AC00AD56F8 /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 				97F7C38A1B50E674003B17B9 /* WBUser.m */,
 				9788760A1B52CEB2000BABAF /* WBStatusFrame.h */,
 				9788760B1B52CEB2000BABAF /* WBStatusFrame.m */,
+				97CB7E871B539B0200476F65 /* WBPhoto.h */,
+				97CB7E881B539B0200476F65 /* WBPhoto.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				97C618331B5033230048E8E0 /* AFHTTPSessionManager.m in Sources */,
 				97C6182E1B5033230048E8E0 /* WBTabBar.m in Sources */,
 				97C6184B1B5033230048E8E0 /* SDWebImageCompat.m in Sources */,
+				97CB7E891B539B0200476F65 /* WBPhoto.m in Sources */,
 				97C6184F1B5033230048E8E0 /* SDWebImageManager.m in Sources */,
 				97C618431B5033230048E8E0 /* MJType.m in Sources */,
 				979632A51B51482200C2BA8F /* WBStatus.m in Sources */,

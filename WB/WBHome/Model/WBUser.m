@@ -10,4 +10,17 @@
 
 @implementation WBUser
 
+-(void)setMbtype:(int)mbtype
+{
+    _mbtype = mbtype;
+    
+    self.vip = mbtype > 2;
+}
+
+
+//-(BOOL)isVip
+//{
+//    return self.mbrank > 2;
+//}
+////调用次数太多，不好
 @end

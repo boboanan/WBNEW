@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WB/WBHome/Model/WBStatusFrame.h"
-            timestampString = "458412167.126626"
+            timestampString = "458475939.731469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "status"
             landmarkType = "19">
          </BreakpointContent>

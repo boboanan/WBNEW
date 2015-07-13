@@ -284,7 +284,7 @@
     
     /** 工具条*/
     self.toolbar.frame = statusFrame.toolbarF;
-    
+    self.toolbar.status = status;
 
 }
 

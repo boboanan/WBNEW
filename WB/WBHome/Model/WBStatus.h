@@ -33,4 +33,13 @@
 
 /** 被转发的原微博信息字段，当该微博为转发微博是返回 */
 @property (nonatomic, strong) WBStatus *retweeted_status;
+
+/** 转发数*/
+@property (nonatomic, assign) int reposts_count;
+/** 评论数*/
+@property (nonatomic, assign) int comments_count;
+/** 表态数*/
+@property (nonatomic, assign) int attitudes_count;
+
+@property (nonatomic, copy) NSString *time;
 @end

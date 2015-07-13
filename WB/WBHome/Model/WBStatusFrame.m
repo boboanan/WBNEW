@@ -10,9 +10,6 @@
 #import "WBStatus.h"
 #import "WBUser.h"
 
-//cell的边框宽度
-#define WBStatusCellBorderW 10
-
 
 @implementation WBStatusFrame
 
@@ -100,11 +97,13 @@
     
     /**原创微博整体*/
     CGFloat originalX = 0;
-    CGFloat originalY = 0;
+    //是整个tableView向下移动WBStatusCellMargin
+    CGFloat originalY = WBStatusCellMargin;
     CGFloat originalW = cellW;
     //CGFloat originalH =CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
     self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
+    CGFloat toolbarY = 0;
     /**被转发微博 */
     if(status.retweeted_status){
         
@@ -141,13 +140,25 @@
        
         self.retweetViewF = CGRectMake(retweetX, retweetY, retweetW, retweetH);
     
-        /**  cell高度*/
-        self.cellHeight = CGRectGetMaxY(self.retweetViewF);
+        toolbarY = CGRectGetMaxY(self.retweetViewF);
+//        /**  cell高度*/
+//        self.cellHeight = CGRectGetMaxY(self.retweetViewF);
     }else{
-        /**  cell高度*/
-        self.cellHeight = CGRectGetMaxY(self.originalViewF);
+        toolbarY = CGRectGetMaxY(self.originalViewF) ;
+//        /**  cell高度*/
+//        self.cellHeight = CGRectGetMaxY(self.originalViewF);
     }
     
+    
+    /** 工具条*/
+    
+    /** cell高度*/
+    CGFloat toobarX = 0 ;
+    CGFloat toolbarW = cellW;
+    CGFloat toolbarH = 35;
+    self.toolbarF = CGRectMake(toobarX, toolbarY, toolbarW, toolbarH);
+    
+    self.cellHeight = CGRectGetMaxY(self.toolbarF);
 
     
     

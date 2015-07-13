@@ -24,6 +24,11 @@
 //被转发微博正文字体
 #define WBStatusCellRetweetContentFont [UIFont systemFontOfSize:13]
 
+//cell的边框宽度
+#define WBStatusCellBorderW 10
+//cell之间距
+#define WBStatusCellMargin 15
+
 
 @class WBStatus;
 //用commend＋f整体替换
@@ -56,4 +61,8 @@
 @property (nonatomic, assign) CGRect retweetContentLabelF;
 /** 转发配图 */
 @property (nonatomic, assign) CGRect retweetPhotoViewF;
+
+/** 工具条*/
+@property (nonatomic, assign) CGRect toolbarF;
+
 @end

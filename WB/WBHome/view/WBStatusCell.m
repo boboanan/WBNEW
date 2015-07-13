@@ -12,6 +12,7 @@
 #import "WBUser.h"
 #import "UIImageView+WebCache.h"
 #import "WBPhoto.h"
+#import "WBStatusToolBar.h"
 
 @interface WBStatusCell()
 
@@ -40,6 +41,8 @@
 /** 转发配图 */
 @property (nonatomic, weak) UIImageView *retweetPhotoView;
 
+/** 工具条*/
+@property (nonatomic, weak) WBStatusToolBar *toolbar;
 @end
 
 @implementation WBStatusCell
@@ -55,7 +58,14 @@
     return cell;
 }
 
-
+///**
+// 目的，是整个tableview向下移动WBStatusCellMargin
+// */
+//-(void)setFrame:(CGRect)frame
+//{
+//    frame.origin.y += WBStatusCellMargin;
+//    [super setFrame:frame];
+//}
 
 /**
  *  cell的初始化方法，一个cell只会调用一次
@@ -65,13 +75,36 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
+//        //点击cell时不变色
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        //设置cell选中时的背景色
+        UIView *bg = [[UIView alloc] init];
+        bg.backgroundColor = WBColor(211, 211, 211, 1.0);
+        self.selectedBackgroundView = bg;
+   
+        
         //初始化原创微博
         [self setUpOriginal];
         
         //初始化转发微博
         [self setUpRetweet];
+        
+        //初始化工具条
+        [self setUpToolbar];
     }
     return self;
+}
+
+/** 初始化工具条*/
+-(void)setUpToolbar
+{
+    WBStatusToolBar *toolbar = [WBStatusToolBar toolbar];
+//    toolbar.backgroundColor = [UIColor yellowColor];
+    [self.contentView addSubview:toolbar];
+    self.toolbar = toolbar;
+    
 }
 
 /**
@@ -81,7 +114,7 @@
 {
     /** 转发微博整体 */
     UIView *retweetView = [[UIView alloc] init];
-    retweetView.backgroundColor = WBColor(240, 240, 240, 1.0);
+    retweetView.backgroundColor = WBColor(247, 247, 247, 1.0);
     [self.contentView addSubview:retweetView];
     self.retweetView = retweetView;
     
@@ -107,6 +140,7 @@
 {
     /**原创微博的整体*/
     UIView *originalView = [[UIView alloc] init];
+    originalView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
@@ -248,6 +282,8 @@
         self.retweetView.hidden = YES;
     }
     
+    /** 工具条*/
+    self.toolbar.frame = statusFrame.toolbarF;
     
 
 }

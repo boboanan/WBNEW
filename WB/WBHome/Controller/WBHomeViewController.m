@@ -41,6 +41,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    self.tableView.backgroundColor = WBColor(211, 211, 211, 1.0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(WBStatusCellMargin, 0, 0, 0);
+    
     //设置导航栏内容
     [self setUpNav];
     
@@ -59,6 +62,13 @@
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
     // 主线程也会抽时间处理一下timer（不管主线程是否正在其他事件）
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+//    WBLog(@"viewDidAppear --- %@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
 }
 
 /**

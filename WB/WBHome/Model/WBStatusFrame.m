@@ -10,9 +10,9 @@
 #import "WBStatus.h"
 #import "WBUser.h"
 #import "NSString+Extension.h"
+#import "WBStatusPhotosView.h"
 
 @implementation WBStatusFrame
-
 
 
 -(void)setStatus:(WBStatus *)status
@@ -70,12 +70,12 @@
     /** 配图*/
     CGFloat originalH = 0;
     if(status.pic_urls.count){//有配图
-        CGFloat photoX = contentX;
-        CGFloat photoY = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
-        CGFloat photoWH = 100;
-        self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        CGFloat photosX = contentX;
+        CGFloat photosY = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
+        CGSize photosSize = [WBStatusPhotosView sizeWithCount:status.pic_urls.count];
+        self.photosViewF = (CGRect){{photosX,photosY},photosSize};
         
-         originalH = CGRectGetMaxY(self.photoViewF) + WBStatusCellBorderW;
+         originalH = CGRectGetMaxY(self.photosViewF) + WBStatusCellBorderW;
     }else{//无配图
         originalH = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
     }
@@ -108,12 +108,12 @@
         
         CGFloat retweetH = 0;
         if(retweeted_status.pic_urls.count){//转发微博用配图
-            CGFloat retweetPhotoX = retweetContentX;
-            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelF) + WBStatusCellBorderW;
-            CGFloat retweetPhotoWH = 100;
-            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            CGFloat retweetPhotosX = retweetContentX;
+            CGFloat retweetPhotosY = CGRectGetMaxY(self.retweetContentLabelF) + WBStatusCellBorderW;
+            CGSize retweetPhotosSize = [WBStatusPhotosView sizeWithCount:retweeted_status.pic_urls.count];
+            self.retweetPhotosViewF = (CGRect){{retweetPhotosX,retweetPhotosY},retweetPhotosSize};
             
-            retweetH = CGRectGetMaxY(self.retweetPhotoViewF) + WBStatusCellBorderW;
+            retweetH = CGRectGetMaxY(self.retweetPhotosViewF) + WBStatusCellBorderW;
         }else{
             
             retweetH = CGRectGetMaxY(self.retweetContentLabelF) + WBStatusCellBorderW;

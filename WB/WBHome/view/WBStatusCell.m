@@ -14,7 +14,7 @@
 #import "WBPhoto.h"
 #import "WBStatusToolBar.h"
 #import "NSString+Extension.h"
-
+#import "WBStatusPhotosView.h"
 
 @interface WBStatusCell()
 
@@ -24,7 +24,7 @@
 /** 头像*/
 @property (nonatomic, weak) UIImageView *iconView;
 /** 配图*/
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) WBStatusPhotosView *photosView;
 /** 会员图标*/
 @property (nonatomic, weak) UIImageView *vipView;
 /** 昵称 */
@@ -41,7 +41,7 @@
 /** 转发微博正文 + 昵称*/
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 /** 转发配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) WBStatusPhotosView *retweetPhotosView;
 
 /** 工具条*/
 @property (nonatomic, weak) WBStatusToolBar *toolbar;
@@ -129,9 +129,9 @@
     
     
     /** 转发配图 */
-    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-    [retweetView addSubview:retweetPhotoView];
-    self.retweetPhotoView = retweetPhotoView;
+    WBStatusPhotosView *retweetPhotosView = [[WBStatusPhotosView alloc] init];
+    [retweetView addSubview:retweetPhotosView];
+    self.retweetPhotosView = retweetPhotosView;
     
 }
 
@@ -154,9 +154,10 @@
     self.iconView = iconView;
     
     /** 配图*/
-    UIImageView *photoView = [[UIImageView alloc] init];
-    [self.originalView addSubview:photoView];
-    self.photoView = photoView;
+    WBStatusPhotosView *photosView = [[WBStatusPhotosView alloc] init];
+    [self.originalView addSubview:photosView];
+    self.photosView = photosView;
+//    photosView.backgroundColor = [UIColor redColor];
     
     /** 会员图标*/
     UIImageView *vipView = [[UIImageView alloc] init];
@@ -225,13 +226,13 @@
     
     /** 配图*/
     if(status.pic_urls.count){
-    self.photoView.frame = statusFrame.photoViewF;
-       WBPhoto *photo = [status.pic_urls firstObject];
-    [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.photosView.frame = statusFrame.photosViewF;
+     
+        self.photosView.photos = status.pic_urls;
         
-        self.photoView.hidden = NO;
+        self.photosView.hidden = NO;
     }else{
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
         
     }
     
@@ -286,13 +287,13 @@
         
         /** 被转发微博的配图*/
         if(retweeted_status.pic_urls.count){
-            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
-            WBPhoto *photo = [retweeted_status.pic_urls firstObject];
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.retweetPhotosView.frame = statusFrame.retweetPhotosViewF;
             
-            self.retweetPhotoView.hidden = NO;
+            self.retweetPhotosView.photos = retweeted_status.pic_urls;
+            
+            self.retweetPhotosView.hidden = NO;
         }else{
-            self.retweetPhotoView.hidden = YES;
+            self.retweetPhotosView.hidden = YES;
         }
         
        

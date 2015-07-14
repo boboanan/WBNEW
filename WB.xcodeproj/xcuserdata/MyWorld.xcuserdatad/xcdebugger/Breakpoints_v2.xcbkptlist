@@ -83,13 +83,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WB/WBHome/Model/WBStatus.m"
-            timestampString = "458545582.835706"
+            filePath = "WB/WBHome/view/WBStatusPhotosView.m"
+            timestampString = "458561679.34575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-setSource:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-setPhotos:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WB/WBHome/view/WBStatusPhotosView.m"
+            timestampString = "458561683.324081"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-setPhotos:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

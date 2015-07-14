@@ -46,7 +46,7 @@
     if(range.length != 0){
         //回调地址
         //截取code＝后面的参数
-        int fromIndex = range.location + range.length;
+        unsigned long fromIndex = range.location + range.length;
         NSString *code = [url substringFromIndex:fromIndex];
         
         WBLog(@"%@ %@",code,url);

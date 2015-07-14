@@ -9,6 +9,7 @@
 #import "WBStatus.h"
 #import "WBPhoto.h"
 #import "MJExtension.h"
+#import "NSDate+Extension.h"
 
 @implementation WBStatus
 -(NSDictionary *)objectClassInArray
@@ -55,6 +56,51 @@
     //计算两个日期的差值
     NSDateComponents *cmps = [calendar components:unit fromDate:createDate toDate:now options:0];
     
-    return _created_at;
+    
+//    //过的某个时间的年月日时分秒
+//    NSDateComponents *createDateCmps = [calendar components:unit fromDate:createDate];
+//    NSDateComponents *nowCmps = [calendar components:unit fromDate:now];
+    
+    if([createDate isThisYear]){//今年
+            if([createDate isYesterday]){
+                //昨天
+                fmt.dateFormat = @"昨天 HH:mm";
+                return [fmt stringFromDate:createDate];
+                
+            }else if([createDate isToday]){
+                //今天
+                if(cmps.hour >= 1){
+                    return [NSString stringWithFormat:@"%ld小时前",(long)cmps.hour];
+                }else if(cmps.minute >= 1){
+                    return [NSString stringWithFormat:@"%ld分钟前",(long)cmps.minute];
+                }else{
+                    return @"刚刚";
+                }
+            
+            }else{
+                //今年的其他日子
+                fmt.dateFormat = @"MM-dd HH:mm";
+                return [fmt stringFromDate:createDate];
+            }
+    }else{//非今年
+            fmt.dateFormat = @"yyyy-MM_dd HH:mm";
+            return [fmt stringFromDate:createDate];
+    }
 }
+
+-(void)setSource:(NSString *)source
+{
+ 
+    //方法一：正则表达式
+    
+    //方法二：截串
+    NSRange range;
+    range.location = [source rangeOfString:@">"].location + 1;
+    range.length = [source rangeOfString:@"</"].location - range.location;
+//    range.length = [source rangeOfString:@"<" options:NSBackwardsSearch];//反向寻找
+    _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
+   
+  
+}
+
 @end

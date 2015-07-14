@@ -13,6 +13,8 @@
 #import "UIImageView+WebCache.h"
 #import "WBPhoto.h"
 #import "WBStatusToolBar.h"
+#import "NSString+Extension.h"
+
 
 @interface WBStatusCell()
 
@@ -171,6 +173,7 @@
     /** 时间 */
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = WBStatusCellTimeFont;
+    timeLabel.textColor = [UIColor orangeColor];
     [self.originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
@@ -237,13 +240,31 @@
     self.nameLabel.text = user.name;
     
     /** 时间 */
-    self.timeLabel.frame = statusFrame.timeLabelF;
-    self.timeLabel.text = status.created_at;
+//    NSString *newTime = status.created_at;
+//    NSUInteger timeLen = self.timeLabel.text.length;
+//    if(timeLen != newTime.length && timeLen){
+//        
+//    }
+    NSString *time = status.created_at;
+    CGFloat timeX = statusFrame.nameLabelF.origin.x;
+    CGFloat timeY = CGRectGetMaxY(statusFrame.nameLabelF) + WBStatusCellBorderW;
+    CGSize timeSize = [time sizeWithFont:WBStatusCellTimeFont];
+    self.timeLabel.frame = (CGRect){{timeX, timeY}, timeSize};
+     self.timeLabel.text = status.created_at;
+    /*  来源*/
     
-    /** 来源 */
-    self.sourceLabel.frame = statusFrame.sourceLabelF;
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + WBStatusCellBorderW;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [status.source sizeWithFont:WBStatusCellSourceFont];
+    self.sourceLabel.frame = (CGRect){{sourceX,sourceY},sourceSize};
     self.sourceLabel.text = status.source;
+//    self.timeLabel.frame = statusFrame.timeLabelF;
+//    self.timeLabel.text = status.created_at;
     
+//    /** 来源 */
+//    self.sourceLabel.frame = statusFrame.sourceLabelF;
+//    self.sourceLabel.text = status.source;
+  
     /** 正文 */
     self.contentLabel.frame = statusFrame.contentLabelF;
     self.contentLabel.text = status.text;

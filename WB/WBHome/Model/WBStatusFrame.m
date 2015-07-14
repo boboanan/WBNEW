@@ -25,7 +25,7 @@
     
     /** 头像*/
     //抽取变量，方便下面使用
-    CGFloat iconWH = 50;
+    CGFloat iconWH = 40;
     CGFloat iconX = WBStatusCellBorderW;
     CGFloat iconY = WBStatusCellBorderW;
     self.iconViewF = CGRectMake(iconX, iconY, iconWH, iconWH);

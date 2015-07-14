@@ -95,12 +95,13 @@
     //方法一：正则表达式
     
     //方法二：截串
+#warning set_source
     NSRange range;
     range.location = [source rangeOfString:@">"].location + 1;
     range.length = [source rangeOfString:@"</"].location - range.location;
 //    range.length = [source rangeOfString:@"<" options:NSBackwardsSearch];//反向寻找
     _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
-
+ 
    
 }
 

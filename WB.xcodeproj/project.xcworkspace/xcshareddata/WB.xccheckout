@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B218D07B-C6E9-467C-9A3B-151FFD5B6A16</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>WB</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>32503CC296DD16010EE6793133A7FA5BBBC2ED61</key>
 		<string>https://github.com/boboanan/WBNEW.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>WB.xcodeproj/project.xcworkspace</string>
+	<string>WB.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>32503CC296DD16010EE6793133A7FA5BBBC2ED61</key>

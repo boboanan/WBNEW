@@ -9,10 +9,12 @@
 #import "WBStatusPhotosView.h"
 #import "WBPhoto.h"
 #import "UIImageView+WebCache.h"
+#import "WBStatusPhotoView.h"
 
 #define WBStatusPhotoWH 70
 #define WBStatusPhotoMargin 10
 #define WBStatusPhotoMaxCol(count) ((count==4)?2:3)
+
 @implementation WBStatusPhotosView
 
 /*
@@ -33,7 +35,7 @@
      //创建足够数量imageView
     //创建缺少的imageView
     while (self.subviews.count < photosCount) {
-        UIImageView *photoView = [[UIImageView alloc] init];
+       WBStatusPhotoView *photoView = [[WBStatusPhotoView alloc] init];
         photoView.backgroundColor = [UIColor blackColor];
         [self addSubview:photoView];
     }
@@ -41,15 +43,13 @@
     //遍历图片控件，设置图片
     //注意：cell是循环利用的,cell可能保留有上一个用的cell的数据
     for(int i = 0; i < self.subviews.count; i++){
-        UIImageView *photoView = self.subviews[i];
+       WBStatusPhotoView *photoView = self.subviews[i];
         
         if(i < photosCount){//显示
-            WBPhoto *photo = photos[i];
+            photoView.photo = photos[i];
             photoView.hidden = NO;
             
-            //设置图片
-            [photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        }else{//隐藏，因为是循环利用，隐藏就好了
+                   }else{//隐藏，因为是循环利用，隐藏就好了
             photoView.hidden = YES;
             
         }
@@ -66,7 +66,7 @@
     int maxCols = WBStatusPhotoMaxCol(photosCount);
     //设置图片尺寸和位置
     for(int i = 0; i < photosCount; i++){
-        UIImageView *photoView = self.subviews[i];
+       WBStatusPhotoView *photoView = self.subviews[i];
         int col = i % maxCols;
         photoView.x = col * (WBStatusPhotoWH + WBStatusPhotoMargin);
         
@@ -95,7 +95,7 @@
     //    if(rows != 0){
     //        rows = count / 3 + 1;
     //    }
-    int rows = (count + maxCols -1) / 3;
+    int rows = (count + maxCols -1) / maxCols;
     CGFloat photosH = rows * WBStatusPhotoWH + (rows - 1) * WBStatusPhotoMargin;
     
     return CGSizeMake(photosW, photosH);

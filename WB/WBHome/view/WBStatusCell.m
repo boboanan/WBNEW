@@ -15,6 +15,7 @@
 #import "WBStatusToolBar.h"
 #import "NSString+Extension.h"
 #import "WBStatusPhotosView.h"
+#import "WBIconView.h"
 
 @interface WBStatusCell()
 
@@ -22,7 +23,7 @@
 /** 原创微博整体*/
 @property (nonatomic, weak) UIView *originalView;
 /** 头像*/
-@property (nonatomic, weak) UIImageView *iconView;
+@property (nonatomic, weak) WBIconView *iconView;
 /** 配图*/
 @property (nonatomic, weak) WBStatusPhotosView *photosView;
 /** 会员图标*/
@@ -148,7 +149,7 @@
     
     
     /** 头像*/
-    UIImageView *iconView = [[UIImageView alloc] init];
+    WBIconView *iconView = [[WBIconView alloc] init];
     [self.originalView addSubview:iconView];
     //        self.originalView.backgroundColor = [UIColor redColor];
     self.iconView = iconView;
@@ -205,7 +206,7 @@
     
     /** 头像*/
     self.iconView.frame = statusFrame.iconViewF;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconView.user = status.user;
     
     /** 会员图标*/
     if(user.isVip){
@@ -278,7 +279,7 @@
         
         /** 被转发微博的整体*/
         self.retweetView.frame = statusFrame.retweetViewF;
-        
+       
         /** 被转发微博的正文 */
         NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status_user.name,status.retweeted_status.text];
         self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;

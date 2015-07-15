@@ -95,14 +95,18 @@
     //方法一：正则表达式
     
     //方法二：截串
-#warning set_source
+#warning set_source  会出现数据特别大的情况
     NSRange range;
     range.location = [source rangeOfString:@">"].location + 1;
     range.length = [source rangeOfString:@"</"].location - range.location;
 //    range.length = [source rangeOfString:@"<" options:NSBackwardsSearch];//反向寻找
-    _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
- 
-   
+    //WBLog(@"%lu ___%lu",(unsigned long)range.location,(unsigned long)range.length);
+    if(range.location > 1000){
+         _source = source;
+    }else{
+          _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
+    }
+    
 }
 
 @end

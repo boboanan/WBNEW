@@ -55,12 +55,13 @@
      *  4.后台运行状态
      */
     // 向操作系统申请后台运行的资格，能维持多久，是不确定的
-    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+    __block UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
         // 当申请的后台运行时间已经结束（过期），就会调用这个block
         
         // 赶紧结束任务
         [application endBackgroundTask:task];
     }];
+    //此据代码首先定义变量，再执行右边代码，再将右边方法的返回值给task,解决方法用__block,(用static不行)或者定义为全局变量
     
     // 在Info.plst中设置后台模式：Required background modes == App plays audio or streams audio/video using AirPlay
     // 搞一个0kb的MP3文件，没有声音

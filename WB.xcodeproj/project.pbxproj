@@ -14,6 +14,7 @@
 		9788760C1B52CEB2000BABAF /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9788760B1B52CEB2000BABAF /* WBStatusFrame.m */; };
 		978CB15E1B5533010041A7A5 /* WBStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 978CB15D1B5533010041A7A5 /* WBStatusPhotoView.m */; };
 		9793773B1B56305200825425 /* WBPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9793773A1B56305200825425 /* WBPlaceholderTextView.m */; };
+		9793773F1B56555500825425 /* WBComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9793773E1B56555500825425 /* WBComposeToolBar.m */; };
 		9793CB711B524BD1004F622E /* WBLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9793CB701B524BD1004F622E /* WBLoadMoreFooter.m */; };
 		9793CB771B524CA9004F622E /* WBLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9793CB761B524CA9004F622E /* WBLoadMoreFooter.xib */; };
 		979632A51B51482200C2BA8F /* WBStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 979632A41B51482200C2BA8F /* WBStatus.m */; };
@@ -116,6 +117,8 @@
 		978CB15D1B5533010041A7A5 /* WBStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusPhotoView.m; sourceTree = "<group>"; };
 		979377391B56305200825425 /* WBPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPlaceholderTextView.h; sourceTree = "<group>"; };
 		9793773A1B56305200825425 /* WBPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPlaceholderTextView.m; sourceTree = "<group>"; };
+		9793773D1B56555500825425 /* WBComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBComposeToolBar.h; sourceTree = "<group>"; };
+		9793773E1B56555500825425 /* WBComposeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBComposeToolBar.m; sourceTree = "<group>"; };
 		9793CB6F1B524BD1004F622E /* WBLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoadMoreFooter.h; sourceTree = "<group>"; };
 		9793CB701B524BD1004F622E /* WBLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoadMoreFooter.m; sourceTree = "<group>"; };
 		9793CB761B524CA9004F622E /* WBLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBLoadMoreFooter.xib; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 		97678B3E1B55F5D9009141E6 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				9793773C1B56553000825425 /* View */,
 				97678B3F1B55F5D9009141E6 /* Controller */,
 			);
 			path = Compose;
@@ -298,6 +302,15 @@
 				97678B411B55F61B009141E6 /* WBComposeViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9793773C1B56553000825425 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9793773D1B56555500825425 /* WBComposeToolBar.h */,
+				9793773E1B56555500825425 /* WBComposeToolBar.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		97C617B61B5030D90048E8E0 /* OAuth */ = {
@@ -912,6 +925,7 @@
 				97C618441B5033230048E8E0 /* MJTypeEncoding.m in Sources */,
 				97C618461B5033230048E8E0 /* NSObject+MJKeyValue.m in Sources */,
 				97C6183F1B5033230048E8E0 /* MJFoundation.m in Sources */,
+				9793773F1B56555500825425 /* WBComposeToolBar.m in Sources */,
 				97C618451B5033230048E8E0 /* NSObject+MJCoding.m in Sources */,
 				97C618361B5033230048E8E0 /* AFURLConnectionOperation.m in Sources */,
 				97C618381B5033230048E8E0 /* AFURLResponseSerialization.m in Sources */,

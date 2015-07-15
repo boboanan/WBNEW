@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:VVDocumenter-Xcode-master"
+      name = "VVDocumenter-Xcode-master">
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <FileRef
+         location = "group:ScreenShot.gif">
+      </FileRef>
+      <Group
+         location = "group:VVDocumenter-Xcode"
+         name = "VVDocumenter-Xcode">
+         <Group
+            location = "group:Commenter"
+            name = "Commenter">
+            <FileRef
+               location = "group:VVArgument.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVArgument.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVBaseCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVBaseCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVEnumCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVEnumCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVFunctionCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVFunctionCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVMacroCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVMacroCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVMethodCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVMethodCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVPropertyCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVPropertyCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVStructCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVStructCommenter.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVVariableCommenter.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVVariableCommenter.m">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:KeyboardHelper"
+            name = "KeyboardHelper">
+            <FileRef
+               location = "group:VVKeyboardEventSender.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVKeyboardEventSender.m">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:OCCategory"
+            name = "OCCategory">
+            <Group
+               location = "group:NSString+PDRegex"
+               name = "NSString+PDRegex">
+               <FileRef
+                  location = "group:NSString+PDRegex.h">
+               </FileRef>
+               <FileRef
+                  location = "group:NSString+PDRegex.m">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:NSString+VVSyntax"
+               name = "NSString+VVSyntax">
+               <FileRef
+                  location = "group:NSString+VVSyntax.h">
+               </FileRef>
+               <FileRef
+                  location = "group:NSString+VVSyntax.m">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:NSTextView+VVTextGetter"
+               name = "NSTextView+VVTextGetter">
+               <FileRef
+                  location = "group:NSTextView+VVTextGetter.h">
+               </FileRef>
+               <FileRef
+                  location = "group:NSTextView+VVTextGetter.m">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Setting"
+            name = "Setting">
+            <FileRef
+               location = "group:VVDocumenterSetting.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVDocumenterSetting.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVDSettingPanelWindowController.h">
+            </FileRef>
+            <FileRef
+               location = "group:VVDSettingPanelWindowController.m">
+            </FileRef>
+            <FileRef
+               location = "group:VVDSettingPanelWindowController.xib">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:VVDocumenter-Xcode-Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenter-Xcode-Prefix.pch">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenter.h">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenter.m">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenterManager.h">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenterManager.m">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:VVDocumenter-Xcode.xcodeproj">
+      </FileRef>
+      <Group
+         location = "group:VVDocumenterTests"
+         name = "VVDocumenterTests">
+         <Group
+            location = "group:CommenterTests"
+            name = "CommenterTests">
+            <FileRef
+               location = "group:CommenterTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:CommenterTests.m">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:DocumenterTests"
+            name = "DocumenterTests">
+            <FileRef
+               location = "group:VVMethodTestsCode.plist">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SyntaxTests"
+            name = "SyntaxTests">
+            <FileRef
+               location = "group:SyntaxTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:SyntaxTests.m">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:VVDocumenterTests-Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenterTests-Prefix.pch">
+         </FileRef>
+         <FileRef
+            location = "group:VVDocumenterTests.m">
+         </FileRef>
+         <FileRef
+            location = "group:VVTestHelper.h">
+         </FileRef>
+         <FileRef
+            location = "group:VVTestHelper.m">
+         </FileRef>
+      </Group>
+   </Group>
+   <FileRef
+      location = "container:WB.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:KSImageNamed-Xcode-master"
+      name = "KSImageNamed-Xcode-master">
+      <Group
+         location = "group:KSImageNamed"
+         name = "KSImageNamed">
+         <FileRef
+            location = "group:Completions.plist">
+         </FileRef>
+         <FileRef
+            location = "group:DVTSourceTextView+KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:DVTSourceTextView+KSImageNamed.m">
+         </FileRef>
+         <FileRef
+            location = "group:DVTTextCompletionController+KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:DVTTextCompletionController+KSImageNamed.m">
+         </FileRef>
+         <FileRef
+            location = "group:DVTTextCompletionListWindowController+KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:DVTTextCompletionListWindowController+KSImageNamed.m">
+         </FileRef>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:IDEIndex+KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:IDEIndex+KSImageNamed.m">
+         </FileRef>
+         <FileRef
+            location = "group:IDEIndexCompletionStrategy+KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:IDEIndexCompletionStrategy+KSImageNamed.m">
+         </FileRef>
+         <FileRef
+            location = "group:IDEWorkspace+KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:IDEWorkspace+KSImageNamed.m">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamed-Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamed-Prefix.pch">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamed.h">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamed.m">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamedIndexCompletionItem.h">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamedIndexCompletionItem.m">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamedPreviewWindow.h">
+         </FileRef>
+         <FileRef
+            location = "group:KSImageNamedPreviewWindow.m">
+         </FileRef>
+         <FileRef
+            location = "group:MethodSwizzle.h">
+         </FileRef>
+         <FileRef
+            location = "group:MethodSwizzle.m">
+         </FileRef>
+         <FileRef
+            location = "group:XcodeMisc.h">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:KSImageNamed.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <FileRef
+         location = "group:screenshot.gif">
+      </FileRef>
+   </Group>
+</Workspace>

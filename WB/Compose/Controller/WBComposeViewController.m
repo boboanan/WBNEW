@@ -11,10 +11,12 @@
 #import "WBPlaceholderTextView.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
+#import "WBComposeToolBar.h"
 #define WBNotificationCenter [NSNotificationCenter defaultCenter]
 
-@interface WBComposeViewController ()
+@interface WBComposeViewController ()<UITextViewDelegate>
 @property (nonatomic, weak)UITextView *textView;
+@property (nonatomic, weak)WBComposeToolBar *toolbar;
 @end
 
 @implementation WBComposeViewController
@@ -30,8 +32,10 @@
     
     //添加输控件
     [self setUpTextView];
+        //self.automaticallyAdjustsScrollViewInsets 默认是YES
     
-    //self.automaticallyAdjustsScrollViewInsets 默认是YES
+    //添加工具条
+    [self setUpToolBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -111,8 +115,12 @@
 {
     //在这个控制器中，textView的contentInset.type默认会等于64
     WBPlaceholderTextView *textView = [[WBPlaceholderTextView alloc] init];
+    //垂直方向上永远有弹簧效果
+    textView.alwaysBounceVertical = YES;
     textView.frame = self.view.bounds;
     textView.font = [UIFont systemFontOfSize:15];
+    
+    textView.delegate = self;
     textView.placeholder = @"分享新鲜事";
     textView.placeholderColor = [UIColor orangeColor];
     [self.view addSubview:textView];
@@ -121,10 +129,72 @@
     
     //监听通知
     [WBNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
+    
+    //键盘通知
+    //键盘的frame发生改变就会发送通知
+    //UIKeyboardWillChangeFrameNotification
+     //UIKeyboardDidChangeFrameNotification
+    //键盘显示就会发送通知
+//    UIKeyboardWillShowNotification;
+//   UIKeyboardDidShowNotification;
+    
+    //键盘隐藏就会发送通知
+//     UIKeyboardWillHideNotification;
+//  UIKeyboardDidHideNotification;
+//}
+    [WBNotificationCenter addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+/**
+ 添加工具条
+*/
+-(void)setUpToolBar
+{
+    WBComposeToolBar *toolbar = [[WBComposeToolBar alloc] init];
+    toolbar.width = self.view.width;
+    toolbar.height = 44;
+    
+    toolbar.y = self.view.height - toolbar.height;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+    //inputAccessoryView设置显示在键盘顶部的内容
+    //self.textView.inputAccessoryView = toolbar;
+    
+    //inputView设置键盘
+    //self.textView.inputView = [UIButton buttonWithType:UIButtonTypeContactAdd];
 }
 
-
 #pragma mark － 监听方法
+/**
+ 键盘的frame发生改变就会发送通知
+ */
+-(void)keyboardWillChangeFrame:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    // d动画持续时间
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    //键盘的frame
+    CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.toolbar.y = keyboardF.origin.y - self.toolbar.height;
+    } ];
+    
+   // UIKeyboardFrameBeginUserInfoKey : [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)];
+    
+    
+    //WBLog(@"%@",notification);
+    //notification.userInfo=@{
+//    UIKeyboardFrameBeginUserInfoKey = NSRect: {{0, 667}, {375, 225}},
+//    UIKeyboardCenterEndUserInfoKey = NSPoint: {187.5, 554.5},
+//    UIKeyboardBoundsUserInfoKey = NSRect: {{0, 0}, {375, 225}},
+//    键盘弹出／隐藏的frame
+//    UIKeyboardFrameEndUserInfoKey = NSRect: {{0, 442}, {375, 225}},
+//    UIKeyboardAnimationDurationUserInfoKey = 0.25,
+//    UIKeyboardCenterBeginUserInfoKey = NSPoint: {187.5, 779.5},
+//    UIKeyboardAnimationCurveUserInfoKey = 7
+//}
+    
+}
 
 -(void)cancell
 {
@@ -176,5 +246,11 @@
 }
 
 
+#pragma mark - UITextView代理方法
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+    
+}
 
 @end

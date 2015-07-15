@@ -73,7 +73,7 @@
 }
 
 
-
+//还可以用添加UILabel的方法，这样UILabel上的文字可以随着extView滚动
 -(void)drawRect:(CGRect)rect
 {
     if(self.hasText) return;

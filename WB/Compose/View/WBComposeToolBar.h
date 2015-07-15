@@ -8,6 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    WBComposeToolBarButtonTypeCamera,
+    WBComposeToolBarButtonTypePicture,
+    WBComposeToolBarButtonTypeMention,
+    WBComposeToolBarButtonTypeTrend,
+    WBComposeToolBarButtonTypeEmotion
+} WBComposeToolBarButtonType;
+
+@class WBComposeToolBar;
+
+@protocol WBComposeToolBarDelegate <NSObject>
+
+@optional
+
+-(void)composeToolBar:(WBComposeToolBar *)toolbar didClickButton:(WBComposeToolBarButtonType)buttonType;
+
+@end
+
+
 @interface WBComposeToolBar : UIView
 
+@property (nonatomic, weak) id<WBComposeToolBarDelegate> delegate;
 @end

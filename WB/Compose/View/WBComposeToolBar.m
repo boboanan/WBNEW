@@ -16,11 +16,11 @@
     if (self) {
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"compose_toolbar_background"]];
     //初始化按钮
-        [self setUpBtn:@"compose_camerabutton_background" highImage:@"compose_camerabutton_background_highlighted"];
-        [self setUpBtn:@"compose_toolbar_picture" highImage:@"compose_toolbar_picture_highlighted" ];
-        [self setUpBtn:@"compose_mentionbutton_background" highImage:@"compose_mentionbutton_background_highlighted"];
-        [self setUpBtn:@"compose_trendbutton_background" highImage:@"compose_trendbutton_background_highlighted"];
-        [self setUpBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted"];
+        [self setUpBtn:@"compose_camerabutton_background" highImage:@"compose_camerabutton_background_highlighted" type:WBComposeToolBarButtonTypeCamera];
+        [self setUpBtn:@"compose_toolbar_picture" highImage:@"compose_toolbar_picture_highlighted" type:WBComposeToolBarButtonTypePicture];
+        [self setUpBtn:@"compose_mentionbutton_background" highImage:@"compose_mentionbutton_background_highlighted" type:WBComposeToolBarButtonTypeMention];
+        [self setUpBtn:@"compose_trendbutton_background" highImage:@"compose_trendbutton_background_highlighted" type:WBComposeToolBarButtonTypeTrend];
+        [self setUpBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:WBComposeToolBarButtonTypeEmotion];
     
     
     }
@@ -30,11 +30,13 @@
 /**
  创建一个按钮
  */
--(void)setUpBtn:(NSString *)image highImage:(NSString *) highImage
+-(void)setUpBtn:(NSString *)image highImage:(NSString *) highImage type:(WBComposeToolBarButtonType)type
 {
     UIButton *btn = [[UIButton alloc] init];
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    btn.tag = type;
     [self addSubview:btn];
 }
 
@@ -51,6 +53,14 @@
         btn.width = btnW;
         btn.x = i * btnW;
         btn.height = btnH;
+    }
+}
+
+-(void)btnClick:(UIButton *)btn
+{
+    if([self.delegate respondsToSelector:@selector(composeToolBar:didClickButton:)])
+    {
+       [self.delegate composeToolBar:self didClickButton:btn.tag];
     }
 }
 @end

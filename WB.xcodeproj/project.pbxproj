@@ -83,6 +83,7 @@
 		97E5B9081B4FB29900D8DAA3 /* WBNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E5B9001B4FB29900D8DAA3 /* WBNewFeatureViewController.m */; };
 		97E5B9091B4FB29900D8DAA3 /* WBProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E5B9041B4FB29900D8DAA3 /* WBProfileViewController.m */; };
 		97EC63B51B4A66D5003E91B8 /* WBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EC63B41B4A66D5003E91B8 /* WBTests.m */; };
+		97F554861B56BDA50064DF1C /* WBComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F554851B56BDA50064DF1C /* WBComposePhotosView.m */; };
 		97F639161B53E53300B2B88B /* WBStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F639151B53E53300B2B88B /* WBStatusToolBar.m */; };
 		97F7C3751B50AA5C003B17B9 /* WBAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F7C3741B50AA5C003B17B9 /* WBAccountTool.m */; };
 		97F7C3781B50B1BD003B17B9 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F7C3771B50B1BD003B17B9 /* UIWindow+Extension.m */; };
@@ -253,6 +254,8 @@
 		97EC63951B4A66D5003E91B8 /* WB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EC63AE1B4A66D5003E91B8 /* WBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EC63B41B4A66D5003E91B8 /* WBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBTests.m; sourceTree = "<group>"; };
+		97F554841B56BDA50064DF1C /* WBComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBComposePhotosView.h; sourceTree = "<group>"; };
+		97F554851B56BDA50064DF1C /* WBComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBComposePhotosView.m; sourceTree = "<group>"; };
 		97F639141B53E53300B2B88B /* WBStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusToolBar.h; sourceTree = "<group>"; };
 		97F639151B53E53300B2B88B /* WBStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusToolBar.m; sourceTree = "<group>"; };
 		97F7C3731B50AA5C003B17B9 /* WBAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAccountTool.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 			children = (
 				9793773D1B56555500825425 /* WBComposeToolBar.h */,
 				9793773E1B56555500825425 /* WBComposeToolBar.m */,
+				97F554841B56BDA50064DF1C /* WBComposePhotosView.h */,
+				97F554851B56BDA50064DF1C /* WBComposePhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				97C617BB1B5030D90048E8E0 /* WBOAuthViewController.m in Sources */,
 				97C6182B1B5033230048E8E0 /* WBDropDownMenu.m in Sources */,
 				97C618551B5033230048E8E0 /* UIImageView+HighlightedWebCache.m in Sources */,
+				97F554861B56BDA50064DF1C /* WBComposePhotosView.m in Sources */,
 				978876091B52C634000BABAF /* WBStatusCell.m in Sources */,
 				97F7C38B1B50E674003B17B9 /* WBUser.m in Sources */,
 				97C618591B5033230048E8E0 /* UIView+Extension.m in Sources */,
